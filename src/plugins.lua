@@ -7,6 +7,8 @@ packer.init({
 --- startup and add configure plugins
 packer.startup(function()
   local use = use
+   use 'wbthomason/packer.nvim'
+
   use {
   'nvim-tree/nvim-tree.lua',
   requires = {
@@ -17,8 +19,14 @@ packer.startup(function()
     use 'ojroques/nvim-hardline'
     use 'ryanoasis/vim-devicons'
     use 'marko-cerovac/material.nvim'
+    use "ellisonleao/glow.nvim"
   end
 )
+require('glow').setup({
+  style = vim.o.background,
+  width = 120,
+  height = 100,
+})
 require('material.functions').change_style("palenight")
 require('hardline').setup {}
 require("nvim-tree").setup({
