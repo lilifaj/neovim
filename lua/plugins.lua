@@ -7,6 +7,9 @@ packer.init({
 --- startup and add configure plugins
 packer.startup(function()
   local use = use
+  -- Packer can manage itself
+  use 'wbthomason/packer.nvim'
+
   use {
   'nvim-tree/nvim-tree.lua',
   requires = {
@@ -14,10 +17,16 @@ packer.startup(function()
   },
   tag = 'nightly' -- optional, updated every week. (see issue #1193)
 }
-    use {'ojroques/nvim-hardline'}
+    use 'ojroques/nvim-hardline'
     use 'ryanoasis/vim-devicons'
+    use 'ellisonleao/glow.nvim'
+    use 'mechatroner/rainbow_csv'
   end
 )
+vim.g.neon_style = "doom"
+vim.g.neon_italic_keyword = true
+vim.g.neon_italic_function = true
+vim.cmd[[colorscheme neon]]
 
 require('hardline').setup {}
 require("nvim-tree").setup({

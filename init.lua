@@ -1,3 +1,3 @@
-require('src.settings')
-require('src.plugins')
-require('src.keybinds')
+require('settings')
+require('plugins')
+require('keybinds')
