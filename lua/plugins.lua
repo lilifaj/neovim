@@ -21,6 +21,7 @@ packer.startup(function()
     use 'ryanoasis/vim-devicons'
     use 'ellisonleao/glow.nvim'
     use 'mechatroner/rainbow_csv'
+    use {'neoclide/coc.nvim', branch = 'release'}
   end
 )
 vim.g.neon_style = "doom"
