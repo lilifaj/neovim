@@ -21,6 +21,12 @@ packer.startup(function()
     use 'ryanoasis/vim-devicons'
     use 'ellisonleao/glow.nvim'
     use 'mechatroner/rainbow_csv'
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
+    
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   end
 )
 
@@ -40,6 +46,6 @@ require("nvim-tree").setup({
     group_empty = true,
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
   },
 })
