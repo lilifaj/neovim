@@ -79,3 +79,8 @@ o.jumpoptions = 'view'
 -- Map <leader> to space
 g.mapleader = ' '
 g.maplocalleader = ' '
+
+
+-- Coc related settings
+vim.opt.updatetime = 300
+

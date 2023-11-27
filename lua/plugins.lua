@@ -17,14 +17,19 @@ packer.startup(function()
   },
   tag = 'nightly' -- optional, updated every week. (see issue #1193)
 }
-    use 'ojroques/nvim-hardline'
-    use 'ryanoasis/vim-devicons'
-    use 'ellisonleao/glow.nvim'
-    use 'mechatroner/rainbow_csv'
-    use({
-        "iamcco/markdown-preview.nvim",
-        run = function() vim.fn["mkdp#util#install"]() end,
-    })
+  use 'ojroques/nvim-hardline'
+  use 'ryanoasis/vim-devicons'
+  use 'ellisonleao/glow.nvim'
+  use {
+    'neoclide/coc.nvim',
+    branch = 'release',
+    run = 'yarn install --frozen-lockfile'}
+  use 'pearofducks/ansible-vim'
+  use 'mechatroner/rainbow_csv'
+  use({
+      "iamcco/markdown-preview.nvim",
+      run = function() vim.fn["mkdp#util#install"]() end,
+  })
     
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   end
