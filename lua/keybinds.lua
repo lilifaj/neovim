@@ -41,3 +41,7 @@ keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r
 
 -- Use <c-space> to trigger completion
 keyset("i", "<c-space>", "coc#refresh()", {silent = true, expr = true})
+
+-- Copilot autocompletion keybinds
+keyset('i', "<C-J>", 'copilot#Accept("<CR>")', {expr = true,replace_keycodes = false})
+vim.g.copilot_no_tab_map = true

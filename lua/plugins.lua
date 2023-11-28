@@ -24,6 +24,7 @@ packer.startup(function()
     'neoclide/coc.nvim',
     branch = 'release',
     run = 'yarn install --frozen-lockfile'}
+  use 'github/copilot.vim'
   use 'pearofducks/ansible-vim'
   use 'mechatroner/rainbow_csv'
   use({

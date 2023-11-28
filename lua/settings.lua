@@ -83,4 +83,3 @@ g.maplocalleader = ' '
 
 -- Coc related settings
 vim.opt.updatetime = 300
-
