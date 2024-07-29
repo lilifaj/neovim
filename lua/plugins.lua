@@ -27,14 +27,27 @@ packer.startup(function()
   use 'github/copilot.vim'
   use 'pearofducks/ansible-vim'
   use 'mechatroner/rainbow_csv'
-  use({
-      "iamcco/markdown-preview.nvim",
-      run = function() vim.fn["mkdp#util#install"]() end,
-  })
-    
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+        local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+        ts_update()
+    end,
+  }
   end
 )
+
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
 
 require('hardline').setup {}
 require("nvim-tree").setup({
@@ -55,3 +68,12 @@ require("nvim-tree").setup({
     dotfiles = false,
   },
 })
+
+vim.g.coc_filetype_map = {
+  ['yaml.ansible'] = 'ansible',
+}
+vim.g.copilot_filetypes = { ['yaml.ansible'] = true,
+                            ['markdown'] = true,
+                            ['yaml'] = true
+                          }
+
